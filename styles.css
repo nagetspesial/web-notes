@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  transition: background 0.3s ease;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.preloader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-icon {
+  width: 60px;
+  margin-bottom: 20px;
+  animation: spin 2s linear infinite;
+}
+
+.preloader-text {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0a9396;
+  position: relative;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.preloader-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a9396;
+  color: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header:hover {
+  background-color: #005f5f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 700;
+  transition: font-size 0.3s ease;
+}
+
+.header h1 img {
+  width: 50px;
+  margin-right: 10px;
+  transition: width 0.3s ease;
+}
+
+.container {
+  width: 100%;
+  flex-grow: 1;
+  padding: 4% 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: padding 0.3s ease;
+}
+
+.container button {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  background-color: #ee9b00;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 10px auto 20px auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container button:hover {
+  background-color: #ca7800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#butText {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.container button img {
+  width: 24px;
+  transition: width 0.3s ease;
+}
+
+.note {
+  position: relative;
+  background: #e9d8a6;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.delete-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #94d2bd;
+  padding: 10px 15px;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.delete-area:hover {
+  background: #80b8aa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-area p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0;
+  flex-grow: 1;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.delete-area img {
+  width: 24px;
+  cursor: pointer;
+  transition: width 0.3s ease;
+  z-index: 2;
+}
+
+.input-box {
+  background: #e9d8a6;
+  padding: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.input-box:hover {
+  background: #d5b897;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-box p {
+  font-weight: 500;
+  color: #2d2d2d;
+  padding: 5px 8px;
+  margin: 0;
+}
+
+footer {
+  background-color: #0a9396;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1001;
+}
+
+.close:hover {
+  color: #ee9b00;
+}
+.modal-button {
+  background-color: #ee9b00;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-button:hover {
+  background-color: #ca7800;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 5% 5%;
+  }
+
+  .container button {
+    max-width: 100%;
+    padding: 12px 15px;
+  }
+
+  .delete-area,
+  .input-box {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .header h1 img {
+    width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 6% 3%;
+  }
+
+  .container button {
+    padding: 10px 12px;
+  }
+
+  .delete-area,
+  .input-box {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header h1 img {
+    width: 40px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
